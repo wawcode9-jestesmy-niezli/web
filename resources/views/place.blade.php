@@ -7,7 +7,7 @@
         <p class="text-center">{{$place->description}}</p>
     </div>
     <div class="text-center">
-        @include('blocks')
+        @include('blocks', ['id' => $place->id])
     </div>
 </div>
 @endsection

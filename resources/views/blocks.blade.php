@@ -1,6 +1,6 @@
 <noscript>You need to enable JavaScript to run this app.</noscript
 ><script>
-window.hwPlaceId = 1;
+window.hwPlaceId = {{$id}};
 </script>
 <div id="root"></div>
 <script>

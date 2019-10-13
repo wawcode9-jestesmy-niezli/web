@@ -15,5 +15,6 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 
 Auth::routes();
 
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/places', 'PlaceController@index')->name('places');

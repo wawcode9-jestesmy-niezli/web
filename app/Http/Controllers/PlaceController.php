@@ -28,6 +28,18 @@ class PlaceController extends Controller
         return view('places')->with(['places' => Place::all()]);
     }
 
+    public function show(Request $request) {
+        $place = Place::find($request->id);
+        if (!$place) {
+            return redirect('/');
+        }
+        $relationExists = \DB::table('userplaces')->where(['idUser' => \Auth::user()->id, 'idPlace' => $request->id])->exists();
+        if (!$relationExists) {
+            return redirect('/');
+        }
+        return view('place')->with(['place' => $place]);
+    }
+
     public function check(Request $request)
     {
         $places = Place::select('id', 'latitude', 'longitude')->get();
@@ -40,7 +52,7 @@ class PlaceController extends Controller
             if (!$exists && $distance <= $limit) {
                 $id[] = $place->id;
                 \DB::table('userplaces')->insert(
-                    ['idUser' => \Auth::user()->id, 'idPlace' => $place->id, 'createDate' => Carbon::now()]
+                    ['idUser' => $userId, 'idPlace' => $place->id, 'createDate' => Carbon::now()]
                 );
             }
         }

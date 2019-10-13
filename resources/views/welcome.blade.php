@@ -1,99 +1,100 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.hiwarsaw')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<div class="mb-5" style="background-image: url('./warsaw.jpg');background-size: cover;background-position:top center;">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center" style="color: white;padding: 150px 15px;">
+                <h1>Zwiedzaj Warszawę z aplikacją <strong>"Hi!&nbsp;Warsaw"</strong></h1>
+                @auth
+                    <button onclick="disover()" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Odkryj!</button>
+                    <script>
+                        if ("geolocation" in navigator) {
+                            console.log("Geolocation available");
+                        } else {
+                            alert("Geolocation services are unavailable, please enable it in your browser!");
+                        }
+                        function disover() {
+                            navigator.geolocation.getCurrentPosition((position) => {
+                                const latitude  = position.coords.latitude;
+                                const longitude = position.coords.longitude;
+                                fetch(`https://hiwarsaw.herokuapp.com/check/${latitude}/${longitude}`)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.id) {
+                                            window.location.href="/place/" + data.id;
+                                        } else {
+                                            alert("Brak miejsc do odkrycia w pobliżu!")
+                                        }
+                                    })
+                                    .catch(() => {
+                                        alert("Error, please try again later!");
+                                    });
+                            }, () => {
+                                console.log("Loading");
+                            });
+                        }
+                    </script>
+                @else
+                <button onclick="register()" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Zarejestruj!</button>
+                <script>
+                    function register() {
+                        window.location.href= '/register';
+                    }
+                </script>
+                @endauth
+            </div>
+        </div>
+    </div>
+</div>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+<div class="container text-center mb-5" style="font-size: 25px;line-height: 70px;">
+    <div class="row">
+        <div class="col" style="background-color: #f6f6f6;">
+            #odkrywaj
+        </div>
+        <div class="col" style="background-color: #eae9e9;">
+            #graj
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="background-color: #eae9e9;">
+            #zwiedzaj
+        </div>
+        <div class="col" style="background-color: #f6f6f6;">
+            #wygrywaj
+        </div>
+    </div>
+</div>
 
-            .full-height {
-                height: 100vh;
-            }
+<div class="container">
+    <div class="mb-3 text-center">
+        <h2>W pobliżu</h2>
+    </div>
+</div>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+@foreach($places as $place)
+<div class="container">
+    <div class="card mb-3" style="width: 100%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="/place/{{$place->id}}.jpg" class="card-img" alt="{{$place->name}}" style="height: 200px;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{$place->name}}</h5>
+                    <p class="card-text">{{$place->description}}</p>
+                    @if($place->type !== "default")
+                        <p class="card-text">
+                            <small class="badge badge-primary">{{$place->type}}</small>
+                        </p>
+                    @endif
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</div>
+@endforeach
+
+@endsection

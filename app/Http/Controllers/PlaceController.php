@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Place;
+use App\User;
 
 class PlaceController extends Controller
 {
@@ -25,7 +26,21 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        return view('places')->with(['places' => Place::all()]);
+        $visited = \DB::table('userplaces')
+            ->where(['userplaces.idUser' => \Auth::user()->id])
+            ->pluck('userplaces.idPlace');
+
+        return view('places')->with(['places' => Place::all(), 'visited' => $visited]);
+    }
+
+    public function wranking(Request $request) {
+        $user = User::pluck('name');
+        return view('wranking')->with(['items' => $user]);
+    }
+
+    public function pranking(Request $request) {
+        $user = Place::pluck('name');
+        return view('wranking')->with(['items' => $user]);
     }
 
     public function show(Request $request) {

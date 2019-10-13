@@ -28,16 +28,16 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="/home">Home</a>
+                            <a class="nav-link" href="/home">My places</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/places">Places</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#/warsaw-ranking">Warsaw ranking</a>
+                            <a class="nav-link" href="/warsaw-ranking">Warsaw ranking</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#/place-ranking">Place ranking</a>
+                            <a class="nav-link" href="/place-ranking">Place ranking</a>
                         </li>
                         @endauth
                     </ul>

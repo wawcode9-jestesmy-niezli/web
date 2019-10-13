@@ -20,3 +20,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/places', 'PlaceController@index')->name('places');
 Route::get('/place/{id}', 'PlaceController@show')->name('show');
 Route::get('/check/{latitude}/{longitude}', 'PlaceController@check')->name('check');
+Route::get('/warsaw-ranking', 'PlaceController@wranking')->name('wranking');
+Route::get('/place-ranking', 'PlaceController@pranking')->name('pranking');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Place;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $places = \DB::table('places')
+            ->join('userplaces', 'places.id', '=', 'userplaces.idPlace')
+            ->select('places.*')
+            ->where(['userplaces.idUser' => \Auth::user()->id])
+            ->get();
+
+        return view('home')->with(['places' => $places]);
     }
 }

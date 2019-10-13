@@ -1,23 +1,28 @@
 @extends('layouts.hiwarsaw')
 
 @section('content')
-<div class="container mt-3">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
+<div class="container">
+    @foreach($places as $place)
+    <div class="card mb-3" style="width: 100%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="/warsaw.jpg" class="card-img" alt="{{$place->name}}" style="height: 100%">
+            </div>
+            <div class="col-md-8">
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <h5 class="card-title">{{$place->name}}</h5>
+                    <p class="card-text">
+                        {{$place->description}}
+                    </p>
+                    @if($place->type !== "default")
+                        <p class="card-text">
+                            <small class="badge badge-primary">{{$place->type}}</small>
+                        </p>
                     @endif
-
-                    You are logged in!
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 @endsection

@@ -12,7 +12,7 @@
     <div class="card mb-3" style="width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
-            <img src="/place/{{$place->id}}.jpg" class="card-img" alt="{{$place->name}}" style="height: 200px;"/>
+            <img src="/place/{{$place->id}}.jpg" class="card-img" alt="{{$place->name}}" style="height: 200px;{{$style}}"/>
             </div>
             <div class="col-md-8">
                 <div class="card-body">

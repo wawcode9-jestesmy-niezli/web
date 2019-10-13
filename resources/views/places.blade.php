@@ -17,10 +17,10 @@
                     <p class="card-text d-none">
                         id: {{$place->id}}
                     </p>
-                    <p class="card-text d-none">
+                    <p class="card-text d-none1">
                         latitude: {{$place->latitude}}
                     </p>
-                    <p class="card-text d-none">
+                    <p class="card-text d-none1">
                         longitude: {{$place->longitude}}
                     </p>
                     <p class="card-text d-none">

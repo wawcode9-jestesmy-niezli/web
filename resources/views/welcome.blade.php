@@ -12,6 +12,8 @@
                     <script>
                         if ("geolocation" in navigator) {
                             console.log("Geolocation available");
+                        } else {
+                            alert("Geolocation services are unavailable, please enable it in your browser!");
                         }
                         function disover() {
                             navigator.geolocation.getCurrentPosition((position) => {
@@ -30,7 +32,7 @@
                                         alert("Error, please try again later!");
                                     });
                             }, () => {
-                                alert("Geolocation services are unavailable, please enable it in your browser!");
+                                console.log("Loading");
                             });
                         }
                     </script>

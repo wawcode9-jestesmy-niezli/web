@@ -40,7 +40,7 @@ class PlaceController extends Controller
 
     public function pranking(Request $request) {
         $user = Place::pluck('name');
-        return view('wranking')->with(['items' => $user]);
+        return view('pranking')->with(['items' => $user]);
     }
 
     public function show(Request $request) {

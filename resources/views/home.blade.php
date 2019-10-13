@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <h2 class="text-center">My places</h2>
     @foreach($places as $place)
     <div class="card mb-3" style="width: 100%;">
         <div class="row no-gutters">

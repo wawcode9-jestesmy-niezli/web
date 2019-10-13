@@ -2,11 +2,12 @@
 
 @section('content')
 <div class="container">
+    <h2 class="text-center">Places</h2>
     @foreach($places as $place)
     @if(in_array($place->id, $visited->toArray()))
         @php $style = ""; @endphp
     @else
-        @php $style = "filter: grayscale(100%);"; @endphp
+        @php $style = "filter: grayscale(1);opacity: 0.7;"; @endphp
     @endif
     <div class="card mb-3" style="width: 100%;">
         <div class="row no-gutters">

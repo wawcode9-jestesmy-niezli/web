@@ -17,7 +17,7 @@
                             navigator.geolocation.getCurrentPosition((position) => {
                                 const latitude  = position.coords.latitude;
                                 const longitude = position.coords.longitude;
-                                fetch(myRequest)
+                                fetch(`/check/${latitude}/${longitude}/`)
                                     .then(response => response.json())
                                     .then(data => {
                                         if (data.id) {

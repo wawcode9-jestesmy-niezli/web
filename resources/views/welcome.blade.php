@@ -17,7 +17,7 @@
                             navigator.geolocation.getCurrentPosition((position) => {
                                 const latitude  = position.coords.latitude;
                                 const longitude = position.coords.longitude;
-                                fetch(`/check/${latitude}/${longitude}/`)
+                                fetch(`https://hiwarsaw.herokuapp.com/check/${latitude}/${longitude}/`)
                                     .then(response => response.json())
                                     .then(data => {
                                         if (data.id) {

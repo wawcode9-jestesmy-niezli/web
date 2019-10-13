@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-center" style="color: white;padding: 150px 15px;">
-                <h1>Discover Warsaw with the <strong>Hi!&nbsp;Warsaw</strong> app</h1>
+                <h1>Discover Warsaw with the <strong>"Hi!&nbsp;Warsaw"</strong> app</h1>
                 @auth
                     <button onclick="alert('Not implemented yet..')" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Discover!</button>
                 @endauth
@@ -51,7 +51,11 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$place->name}}</h5>
                     <p class="card-text">{{$place->description}}</p>
-                    <p class="card-text"><small class="text-muted">{{$place->type}}</small></p>
+                    @if($place->type !== "default")
+                        <p class="card-text">
+                            <small class="badge badge-primary">{{$place->type}}</small>
+                        </p>
+                    @endif
                 </div>
             </div>
         </div>

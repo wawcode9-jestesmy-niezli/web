@@ -11,7 +11,7 @@
     <meta name="keywords" content="" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link href="/css/app.css" rel="stylesheet" type="text/css" />
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/js/app.js" defer></script>
 </head>
 <body>
 

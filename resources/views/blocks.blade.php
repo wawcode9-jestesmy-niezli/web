@@ -109,5 +109,5 @@ window.hwPlaceId = {{$id}};
     var s = n;
     a();
 })([]);</script
-><script src="/blocks/static/js/2.d8918daf.chunk.js"></script
-><script src="/blocks/static/js/main.e92288d9.chunk.js"></script>
+><script src="/blocks/static/js/2.a14045b8.chunk.js"></script
+><script src="/blocks/static/js/main.bd4e3239.chunk.js"></script>

@@ -69,7 +69,7 @@
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col text-center" style="padding: 15px 0;">
+        <div class="col text-center" style="padding: 15px;">
             © 2019 <strong>Hi! Warsaw</strong> developed by "Jesteśmy nieźli" from wawcode9
         </div>
     </div>

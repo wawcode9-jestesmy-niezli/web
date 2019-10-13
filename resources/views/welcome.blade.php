@@ -5,7 +5,7 @@
 <div class="mb-5" style="background-image: url('./warsaw.jpg');background-size: cover;background-position:top center;">
     <div class="container">
         <div class="row">
-            <div class="col text-center" style="color: white;padding: 150px 0;">
+            <div class="col text-center" style="color: white;padding: 150px 15px;">
                 <h1>Discover Warsaw with the <strong>Hi!&nbsp;Warsaw</strong> app</h1>
                 @auth
                     <button onclick="alert('Not implemented yet..')" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Discover!</button>

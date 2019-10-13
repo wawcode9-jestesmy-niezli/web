@@ -8,7 +8,32 @@
             <div class="col text-center" style="color: white;padding: 150px 15px;">
                 <h1>Discover Warsaw with the <strong>"Hi!&nbsp;Warsaw"</strong> app</h1>
                 @auth
-                    <button onclick="alert('Not implemented yet..')" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Discover!</button>
+                    <button onclick="disover()" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Discover!</button>
+                    <script>
+                        if ("geolocation" in navigator) {
+                            console.log("Geolocation available");
+                        }
+                        function disover() {
+                            navigator.geolocation.getCurrentPosition((position) => {
+                                const latitude  = position.coords.latitude;
+                                const longitude = position.coords.longitude;
+                                fetch(myRequest)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.id) {
+                                            window.location.href="/place/" + data.id;
+                                        } else {
+                                            alert("No new places to discover!")
+                                        }
+                                    })
+                                    .catch(() => {
+                                        alert("Error, please try again later!");
+                                    });
+                            }, () => {
+                                alert("Geolocation services are unavailable, please enable it in your browser!");
+                            });
+                        }
+                    </script>
                 @endauth
             </div>
         </div>

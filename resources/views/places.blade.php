@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="text-center">Places</h2>
+    <h2 class="text-center">List miejsc</h2>
     @foreach($places as $place)
     @if(in_array($place->id, $visited->toArray()))
         @php $style = ""; @endphp

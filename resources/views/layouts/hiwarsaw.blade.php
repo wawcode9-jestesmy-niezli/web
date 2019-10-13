@@ -28,31 +28,31 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="/home">My places</a>
+                            <a class="nav-link" href="/home">Moje miejsca</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/places">Places</a>
+                            <a class="nav-link" href="/places">Lista miejsc</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/warsaw-ranking">Warsaw ranking</a>
+                            <a class="nav-link" href="/warsaw-ranking">Ranking Warszawiaka</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/place-ranking">Place ranking</a>
+                            <a class="nav-link" href="/place-ranking">Ranking miejsc</a>
                         </li>
                         @endauth
                     </ul>
                     <ul class="navbar-nav">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                            <a class="nav-link" href="{{ route('logout') }}">Wyloguj</a>
                         </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                <a class="nav-link" href="{{ route('login') }}">Zaloguj</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                    <a class="nav-link" href="{{ route('register') }}">Zarejestruj</a>
                                 </li>
                             @endif
                         @endauth

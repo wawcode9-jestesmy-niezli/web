@@ -6,9 +6,9 @@
     <div class="container">
         <div class="row">
             <div class="col text-center" style="color: white;padding: 150px 15px;">
-                <h1>Discover Warsaw with the <strong>"Hi!&nbsp;Warsaw"</strong> app</h1>
+                <h1>Zwiedzaj Warszawę z aplikacją <strong>"Hi!&nbsp;Warsaw"</strong></h1>
                 @auth
-                    <button onclick="disover()" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Discover!</button>
+                    <button onclick="disover()" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Odkryj!</button>
                     <script>
                         if ("geolocation" in navigator) {
                             console.log("Geolocation available");
@@ -23,7 +23,7 @@
                                         if (data.id) {
                                             window.location.href="/place/" + data.id;
                                         } else {
-                                            alert("No new places to discover!")
+                                            alert("Brak miejsc do odkrycia w pobliżu!")
                                         }
                                     })
                                     .catch(() => {
@@ -43,25 +43,25 @@
 <div class="container text-center mb-5" style="font-size: 25px;line-height: 70px;">
     <div class="row">
         <div class="col" style="background-color: #f6f6f6;">
-            #discover
+            #odkrywaj
         </div>
         <div class="col" style="background-color: #eae9e9;">
-            #play
+            #graj
         </div>
     </div>
     <div class="row">
         <div class="col" style="background-color: #eae9e9;">
-            #explore
+            #zwiedzaj
         </div>
         <div class="col" style="background-color: #f6f6f6;">
-            #win
+            #wygrywaj
         </div>
     </div>
 </div>
 
 <div class="container">
     <div class="mb-3 text-center">
-        <h2>Nearby places</h2>
+        <h2>W pobliżu</h2>
     </div>
 </div>
 

@@ -22,3 +22,4 @@ Route::get('/place/{id}', 'PlaceController@show')->name('show');
 Route::get('/check/{latitude}/{longitude}', 'PlaceController@check')->name('check');
 Route::get('/warsaw-ranking', 'PlaceController@wranking')->name('wranking');
 Route::get('/place-ranking', 'PlaceController@pranking')->name('pranking');
+Route::get('/api-place/{id}', 'PlaceController@api')->name('api');

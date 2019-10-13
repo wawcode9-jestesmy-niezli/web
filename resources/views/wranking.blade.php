@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="text-center">Warsaw ranking</h2>
+    <h2 class="text-center">Ranking Warszawiaka</h2>
     @foreach($items as $key => $item)
     <ul class="list-group">
         <li class="list-group-item mb-1"><strong>#{{$key+1}}</strong> {{$item}}</li>

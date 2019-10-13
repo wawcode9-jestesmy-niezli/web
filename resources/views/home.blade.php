@@ -2,12 +2,14 @@
 
 @section('content')
 <div class="container">
-    <h2 class="text-center">My places</h2>
+    <h2 class="text-center">Moje miejsca</h2>
     @foreach($places as $place)
     <div class="card mb-3" style="width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <img src="/place/{{$place->id}}.jpg" class="card-img" alt="{{$place->name}}" style="height: 200px;">
+                <a href="/place/{{$place->id}}">
+                    <img src="/place/{{$place->id}}.jpg" class="card-img" alt="{{$place->name}}" style="height: 200px;">
+                </a>
             </div>
             <div class="col-md-8">
                 <div class="card-body">

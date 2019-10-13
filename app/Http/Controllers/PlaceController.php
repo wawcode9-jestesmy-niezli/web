@@ -33,6 +33,40 @@ class PlaceController extends Controller
         return view('places')->with(['places' => Place::all(), 'visited' => $visited]);
     }
 
+    private function getBlock($id, $originKey) {
+        return (object)[
+            'image' => '/puzzle/' . $id . '/' . $originKey . '.jpg',
+            'activePosition' => 0,
+            'originalPosition' => $originKey
+        ];
+    }
+
+    public function api(Request $request) {
+        $blocks = [];
+
+        for ($i = 0; $i < 50; $i++) {
+            $blocks[] = $this->getBlock($request->id, $i);
+        }
+
+        shuffle($blocks);
+
+        foreach($blocks as $key => &$block) {
+            $block->activePosition = $key;
+        }
+
+        $place = Place::find($request->id);
+        $name = '';
+        if (!empty($place)) {
+            $name = $place->name;
+        }
+
+        return response([
+            'id' => $request->id,
+            'name' => $name ,
+            'blocks' => $blocks
+        ]);
+    }
+
     public function wranking(Request $request) {
         $user = User::pluck('name');
         return view('wranking')->with(['items' => $user]);

@@ -1,6 +1,7 @@
 {
  "name": "Hi! Warsaw",
  "display": "standalone",
+ "required_features": ["geolocation"],
  "icons": [
   {
    "src": "\/android-icon-36x36.png",

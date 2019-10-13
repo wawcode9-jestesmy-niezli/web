@@ -109,5 +109,5 @@ window.hwPlaceId = 1;
     var s = n;
     a();
 })([]);</script
-><script src="/blocks/static/js/2.d8918daf.chunk.js"></script
-><script src="/blocks/static/js/main.8936bb8e.chunk.js"></script>
+><script src="/static/js/2.d8918daf.chunk.js"></script
+><script src="/static/js/main.e92288d9.chunk.js"></script>

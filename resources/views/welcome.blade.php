@@ -35,7 +35,12 @@
                         }
                     </script>
                 @else
-                <a href="/register" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Zarejestruj!</a>
+                <button onclick="register()" type="button" class="btn" style="margin-top: 20px; padding:15px 25px;border-radius:0;color: white;background: rgba(0, 0, 0, 0.5);border: 2px solid white;font-size:20px;">Zarejestruj!</button>
+                <script>
+                    function register() {
+                        window.location.href= '/register';
+                    }
+                </script>
                 @endauth
             </div>
         </div>

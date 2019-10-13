@@ -11,6 +11,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="/css/app.css" rel="stylesheet" type="text/css" />
     <script src="/js/app.js" defer></script>
 </head>
@@ -44,7 +45,12 @@
                     <ul class="navbar-nav">
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}">Wyloguj</a>
+
+                            <a class="nav-link" href="{{ route('logout') }}">
+                                {{ \Auth::user()->name }}
+                                <i class="fa fa-trophy" aria-hidden="true"></i>
+                                (Wyloguj)
+                            </a>
                         </li>
                         @else
                             <li class="nav-item">

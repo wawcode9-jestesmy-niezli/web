@@ -105,6 +105,12 @@ class PlaceController extends Controller
                 );
             }
         }
+
+        $exists = \DB::table('userplaces')->where(['idUser' => $userId, 'idPlace' => 15])->exists();
+        if (!$exists) {
+            $id[] = 15;
+        }
+
         return response()->json(['id' => !empty($id[0]) ? $id[0] : null, 'length' => count($id)]);
     }
 

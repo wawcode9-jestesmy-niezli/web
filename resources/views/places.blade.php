@@ -1,26 +1,43 @@
-@extends('layouts.app')
+@extends('layouts.hiwarsaw')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container mt-3">
+    <div class="row">
         @foreach($places as $place)
-        <div class="col-md-8">
-            <div class="card" style="margin-bottom: 10px;">
-                <div class="card-header">
-                    {{$place->id}} {{$place->name}}
-                    <span>{{$place->type}}</span>
-                </div>
+
+        <div class="card mb-3" style="width: 100%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="/warsaw.jpg" class="card-img" alt="{{$place->name}}" style="height: 100%">
+            </div>
+            <div class="col-md-8">
                 <div class="card-body">
-                    {{$place->description}}
-                </div>
-                <div class="card-footer">
-                    <span>latitude: {{$place->latitude}}</span>,
-                    <span>longitude: {{$place->longitude}}</span>,
-                    <span>from: {{$place->availablefrom}}</span>,
-                    <span>to: {{$place->availableto}}</span>,
+                    <h5 class="card-title">{{$place->name}}</h5>
+                    <p class="card-text">
+                        id: {{$place->id}}
+                    </p>
+                    <p class="card-text">
+                        desscription: {{$place->description}}
+                    </p>
+                    <p class="card-text">
+                        latitude: {{$place->latitude}}
+                    </p>
+                    <p class="card-text">
+                        longitude: {{$place->longitude}}
+                    </p>
+                    <p class="card-text">
+                        from: {{$place->availablefrom}}
+                    </p>
+                    <p class="card-text">
+                        to: {{$place->availableto}}
+                    </p>
+                    <p class="card-text"><small class="text-muted">{{$place->type}}</small></p>
                 </div>
             </div>
         </div>
+    </div>
+
+        
         @endforeach
     </div>
 </div>

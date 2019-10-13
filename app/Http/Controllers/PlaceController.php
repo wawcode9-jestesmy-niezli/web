@@ -37,7 +37,7 @@ class PlaceController extends Controller
         return (object)[
             'image' => '/puzzle/' . $id . '/' . $originKey . '.jpg',
             'activePosition' => 0,
-            'originalPosition' => $originKey
+            'originPosition' => $originKey
         ];
     }
 

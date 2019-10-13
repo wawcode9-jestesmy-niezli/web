@@ -12,7 +12,13 @@
     <div class="card mb-3" style="width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
-            <img src="/place/{{$place->id}}.jpg" class="card-img" alt="{{$place->name}}" style="height: 200px;{{$style}}"/>
+                @if(in_array($place->id, $visited->toArray()))
+                <a href="/place/{{$place->id}}">
+                    <img src="/place/{{$place->id}}.jpg" class="card-img" alt="{{$place->name}}" style="height: 200px;{{$style}}"/>
+                </a>
+                @else
+                    <img src="/place/{{$place->id}}.jpg" class="card-img" alt="{{$place->name}}" style="height: 200px;{{$style}}"/>
+                @endif
             </div>
             <div class="col-md-8">
                 <div class="card-body">
